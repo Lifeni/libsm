@@ -161,6 +161,10 @@ impl ExchangeCtxA {
 
         Sm3Hash::new(&prepend).get_hash()
     }
+
+    pub fn get_key(&self) -> Option<Vec<u8>> {
+        self.k_a.clone()
+    }
 }
 
 impl ExchangeCtxB {
@@ -279,6 +283,10 @@ impl ExchangeCtxB {
 
         assert_eq!(s_2, s_a);
         s_2 == s_a
+    }
+
+    pub fn get_key(&self) -> Option<Vec<u8>> {
+        self.k_b.clone()
     }
 }
 
